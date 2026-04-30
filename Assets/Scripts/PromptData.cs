@@ -37,7 +37,6 @@ public class PromptData : ScriptableObject
         int randomIndex = UnityEngine.Random.Range(0, Checks.Length);
         _currentCheck = Checks[randomIndex];
 
-        Severity = _currentCheck.GetSeverity();
         Expandable = true;
     }
 
@@ -66,12 +65,12 @@ public class PromptData : ScriptableObject
         }
     }
 
-    private void OnValidate()
+    public int GetSeverity()
     {
+        Severity = 0;
         if (IndicatorType == IndicatorTypes.Approved)
         {
-            Severity = 0;
-            return;
+            return 0;
         }
 
         if (IndicatorType == IndicatorTypes.Disapproved)
@@ -80,17 +79,15 @@ public class PromptData : ScriptableObject
             Severity += NotPublicInfo ? 1 : 0;
             Severity += CopyrightedData ? 1 : 0;
             Severity += SubjectNotInformed ? 1 : 0;
-            return;
+            return Severity;
         }
 
         if (IndicatorType == IndicatorTypes.Check)
         {
-            Severity = 0;
-            Expandable = true;
-            return;
+            Severity = _currentCheck.GetSeverity();
+            return Severity;
         }
 
-        Severity = 0;
-        Expandable = false;
+        return 0;
     }
 }

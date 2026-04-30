@@ -11,6 +11,11 @@ public class PlayerSprite : MonoBehaviour
     private void Awake()
     {
         _animationController = GetComponent<AnimationController>();
+
+        if (transform.root.TryGetComponent(out PlayerController controller))
+        {
+            controller.MoveEvent += SetWalking;
+        }
     }
 
     private void SetWalking(Vector2 direction)
@@ -21,8 +26,6 @@ public class PlayerSprite : MonoBehaviour
             return;
         }
         
-        float xScale = direction.x < 0 ? -1 : 1;
-        transform.localScale = new Vector3(xScale, 1, 1);
         _animationController.PlayAnimationClip(_runAnimation);
     }
 }

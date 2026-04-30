@@ -2,7 +2,6 @@ using System;
 using System.Threading;
 using System.Threading.Tasks;
 using TMPro;
-using UnityEditor.Rendering;
 using UnityEngine;
 using UnityEngine.UI;
 
@@ -13,7 +12,7 @@ public class Prompt : MonoBehaviour
     [SerializeField] private TextMeshProUGUI _promptText;
     [SerializeField] private TextMeshProUGUI _checkText;
     [SerializeField] private RawImage _approvalIndicator;
-    [SerializeField] private PromptData _promptData;
+    private PromptData _promptData;
 
     private AnimationController _animationController;
     [SerializeField] private AnimationClip _expandAnimation;
@@ -25,13 +24,12 @@ public class Prompt : MonoBehaviour
     private void Awake()
     {
         _animationController = GetComponent<AnimationController>();
-
-       if (_promptData != null) SetData(_promptData);
     }
 
     public void SetData(PromptData promptData)
     {
         _checkText.text = string.Empty;
+        _promptData = promptData;
         SetPrompt(promptData.PromptHeader);
         SetApproval(promptData.IndicatorType);
     }
@@ -39,7 +37,7 @@ public class Prompt : MonoBehaviour
     public int GetSeverity()
     {
         if (_promptData == null) return 0;
-        return _promptData.Severity;
+        return _promptData.GetSeverity();
     }
 
     private async void SetPrompt(string promptText)

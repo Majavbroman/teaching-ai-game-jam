@@ -1,10 +1,13 @@
 using UnityEngine;
 
+[RequireComponent(typeof(SpriteRenderer))]
 public class EnemyMoveToAI : MonoBehaviour
 {
+    private SpriteRenderer spriteRenderer;
     //The AI core/center the enemy will move towards.
     //SerializeField us see it in the inspector and drag the object that will be the AI into this field.
-    [SerializeField] private GameObject aiCore;
+    //[SerializeField] private GameObject aiCore;
+    private AiCenter aiCore;
 
     //How fast the enemy moves, can also be change in the inspector
     [SerializeField] private float speed = 1.5f;
@@ -15,6 +18,11 @@ public class EnemyMoveToAI : MonoBehaviour
 
     //Ramdom value used so enemies of the same movementType do not wobble in sync.
     private float randomOffset;
+
+    private void Awake()
+    {
+        spriteRenderer = GetComponent<SpriteRenderer>();
+    }
 
     private void Start()
     {
@@ -30,6 +38,7 @@ public class EnemyMoveToAI : MonoBehaviour
     void Update()
     {
         //If no AI core/center has been assigned, stop the code here to avoid errors.
+        aiCore = AiCenter.Instance;
         if (aiCore == null)
             return;
 
@@ -75,5 +84,6 @@ public class EnemyMoveToAI : MonoBehaviour
         //Time.deltaTime makes movement smooth and independent of frame rate.
         transform.position += (Vector3)(finalDirection.normalized * speed * Time.deltaTime);
 
+        spriteRenderer.flipX = finalDirection.x > 0;
     }
 }

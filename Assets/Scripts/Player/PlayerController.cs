@@ -89,6 +89,10 @@ public class PlayerController : MonoBehaviour
         Vector2 difference = trackedPosition - currentPosition;
         Vector2 direction = difference.normalized;
         float forceMagnitude = MaxSpeed * Math.Clamp(value:difference.magnitude, min:0, max:clampLength) / clampLength;
+
+        float xScale = direction.x < 0 ? -1 : 1;
+        transform.localScale = new Vector3(xScale, 1, 1);
+
         return forceMagnitude*direction;
     }
 }

@@ -31,7 +31,7 @@ public class EnemySpawner : MonoBehaviour
         Camera cam = Camera.main;
 
         // Pick a side: 0 = left, 1 = right, 2 = top, 3 = bottom
-        int side = Random.Range(0, 4);
+        int side = Random.Range(0, 2);
         float offset = 0.05f; // how far outside the screen
 
 
@@ -40,7 +40,7 @@ public class EnemySpawner : MonoBehaviour
 
         switch (side)
         {
-            case 0: // Left
+            /*case 0: // Left
                 x = 0f - offset;
                 y = Random.Range(0f, 1f);
                 break;
@@ -48,14 +48,14 @@ public class EnemySpawner : MonoBehaviour
             case 1: // Right
                 x = 1f+ offset;
                 y = Random.Range(0f, 1f);
-                break;
+                break;*/
 
-            case 2: // Top
+            case 0: // Top
                 x = Random.Range(0f, 1f);
                 y = 1f+ offset;
                 break;
 
-            case 3: // Bottom
+            case 1: // Bottom
                 x = Random.Range(0f, 1f);
                 y = 0f- offset;
                 break;

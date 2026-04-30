@@ -359,7 +359,7 @@ GameObject:
   - component: {fileID: 7456307142904170159}
   - component: {fileID: 3774003750610430418}
   - component: {fileID: 6886927033821021509}
-  - component: {fileID: 6906444948445139910}
+  - component: {fileID: 4354335843054217534}
   m_Layer: 0
   m_Name: Prompt
   m_TagString: Untagged
@@ -491,11 +491,10 @@ MonoBehaviour:
   _promptText: {fileID: 7686204622257792280}
   _checkText: {fileID: 4153844675548171739}
   _approvalIndicator: {fileID: 7257835117371152489}
-  _promptData: {fileID: 11400000, guid: c562d0c2351ff524fa1ceed41be42d94, type: 2}
   _expandAnimation: {fileID: 7400000, guid: a1bdfc7eea2b4794eb19cd417f93513e, type: 2}
   _shrinkAnimation: {fileID: 7400000, guid: ab0ad190b14ed1b46bbd4e20e1e109cb, type: 2}
---- !u!61 &6906444948445139910
-BoxCollider2D:
+--- !u!58 &4354335843054217534
+CircleCollider2D:
   m_ObjectHideFlags: 0
   m_CorrespondingSourceObject: {fileID: 0}
   m_PrefabInstance: {fileID: 0}
@@ -528,18 +527,8 @@ BoxCollider2D:
   m_UsedByEffector: 0
   m_CompositeOperation: 0
   m_CompositeOrder: 0
-  m_Offset: {x: 0, y: -0.4931611}
-  m_SpriteTilingProperty:
-    border: {x: 0, y: 0, z: 0, w: 0}
-    pivot: {x: 0.5, y: 0.5}
-    oldSize: {x: 1.5, y: 1.5}
-    newSize: {x: 1, y: 1}
-    adaptiveTilingThreshold: 0.5
-    drawMode: 0
-    adaptiveTiling: 0
-  m_AutoTiling: 0
-  m_Size: {x: 1.5, y: 0.5136778}
-  m_EdgeRadius: 0
+  m_Offset: {x: 0, y: -0.5}
+  m_Radius: 2
 --- !u!1 &8193979066355415570
 GameObject:
   m_ObjectHideFlags: 0
