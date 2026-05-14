@@ -1,4 +1,6 @@
 using System.Collections.Generic;
+using System.Linq;
+using Unity.VisualScripting;
 using UnityEngine;
 
 public static class PromptGetter
@@ -21,46 +23,51 @@ public static class PromptGetter
                     }
                     _promptDataByPool[pool].Add(promptData);
                 }
+
             }
         }
     }
 
     public static PromptData GetRandomPromptData(this PromptPool poolFlags)
     {
-        List<PromptData> poolPrompts = new List<PromptData>();
+        PromptData[] poolPrompts = new PromptData[0];
         foreach(PromptPool pool in _promptDataByPool.Keys)
         {
             if (poolFlags.HasFlag(pool))
             {
-                poolPrompts.AddRange(_promptDataByPool[pool]);
+                poolPrompts = poolPrompts.Concat(_promptDataByPool[pool]).ToArray();
             }
         }
 
-        if (poolPrompts.Count == 0)
+        poolPrompts = poolPrompts.Distinct().ToArray();
+
+        if (poolPrompts.Length == 0)
         {
             Debug.LogWarning($"No prompt data available for pools with flags: {poolFlags}");
             return GetRandomPromptData();
         }
 
-        int index = Random.Range(0, poolPrompts.Count);
+        int index = Random.Range(0, poolPrompts.Length);
         return poolPrompts[index];
     }
 
     public static PromptData GetRandomPromptData()
     {
-        List<PromptData> allPrompts = new List<PromptData>();
+        PromptData[] allPrompts = new PromptData[0];
         foreach (var poolPrompts in _promptDataByPool.Values)
         {
-            allPrompts.AddRange(poolPrompts);
+            allPrompts = allPrompts.Concat(poolPrompts).ToArray();
         }
 
-        if (allPrompts.Count == 0)
+        allPrompts = allPrompts.Distinct().ToArray();
+
+        if (allPrompts.Length == 0)
         {
             Debug.LogWarning("No prompt data available.");
             return null;
         }
 
-        int index = Random.Range(0, allPrompts.Count);
+        int index = Random.Range(0, allPrompts.Length);
         return allPrompts[index];
     }
 }
