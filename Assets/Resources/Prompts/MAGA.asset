@@ -10,17 +10,18 @@ MonoBehaviour:
   m_Enabled: 1
   m_EditorHideFlags: 0
   m_Script: {fileID: 11500000, guid: e5b70e696608a714e8ac1c54bfce583c, type: 3}
-  m_Name: TestPrompt 17
+  m_Name: MAGA
   m_EditorClassIdentifier: Assembly-CSharp::PromptData
-  PromptHeader: My mother called and was given my medical history by the doctor.
+  PromptHeader: My parents supports MAGA
   IndicatorType: 2
   NotPublicInfo: 0
   CopyrightedData: 0
   SubjectNotInformed: 0
   Checks:
-  - CheckText: I am an adult and did not consent to my mother receiving my medical
-      information.
+  - CheckText: My parents supports MAGA because they believe that Trump is a good
+      president who is doing a great job.
     Disapproved: 1
     NotPublicInfo: 1
     CopyrightedData: 0
     SubjectNotInformed: 1
+  <PromptPools>k__BackingField: 2

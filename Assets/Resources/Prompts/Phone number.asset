@@ -10,9 +10,12 @@ MonoBehaviour:
   m_Enabled: 1
   m_EditorHideFlags: 0
   m_Script: {fileID: 11500000, guid: e5b70e696608a714e8ac1c54bfce583c, type: 3}
-  m_Name: TestPrompt 10
+  m_Name: Phone number
   m_EditorClassIdentifier: Assembly-CSharp::PromptData
   PromptHeader: Call me at 12345678 ;)
   IndicatorType: 0
-  Expandable: 0
-  Severity: 1
+  NotPublicInfo: 0
+  CopyrightedData: 0
+  SubjectNotInformed: 0
+  Checks: []
+  <PromptPools>k__BackingField: 41

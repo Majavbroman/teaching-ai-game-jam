@@ -242,6 +242,9 @@ MonoBehaviour:
   m_EditorClassIdentifier: Assembly-CSharp::EnemyFactory
   _enemyPrefabs:
   - {fileID: 6363745933165005382, guid: e9ccd7e7c6f0a7840b39281ae3505704, type: 3}
+  - {fileID: 6363745933165005382, guid: 55de4d4504329f24793743ccf7e0b0cc, type: 3}
+  - {fileID: 6363745933165005382, guid: f57633a2a9a78ec4da7c45141c8852ef, type: 3}
+  - {fileID: 6363745933165005382, guid: 09c75251272ef5746acb8a24a9f4a636, type: 3}
   _promptPrefab: {fileID: 6886927033821021509, guid: f55d7781ecd0ce849879572f07d0b60c, type: 3}
 --- !u!114 &728199574
 MonoBehaviour:
@@ -256,6 +259,20 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: Assembly-CSharp::EnemySpawner
   _startInterval: 3.5
+  _poolsToUse: 1
+  _centerCompleteSettings:
+  - CentersCompleted: 3
+    PoolsToUse: 3
+  - CentersCompleted: 4
+    PoolsToUse: 8
+  - CentersCompleted: 5
+    PoolsToUse: 2
+  - CentersCompleted: 6
+    PoolsToUse: 3
+  - CentersCompleted: 8
+    PoolsToUse: 4
+  - CentersCompleted: 9
+    PoolsToUse: 7
 --- !u!4 &728199575
 Transform:
   m_ObjectHideFlags: 0

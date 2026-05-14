@@ -10,11 +10,12 @@ MonoBehaviour:
   m_Enabled: 1
   m_EditorHideFlags: 0
   m_Script: {fileID: 11500000, guid: e5b70e696608a714e8ac1c54bfce583c, type: 3}
-  m_Name: TestPrompt 14
+  m_Name: '#Vacay'
   m_EditorClassIdentifier: Assembly-CSharp::PromptData
-  PromptHeader: "\u201CA Dandelion, must be the last one of the season\u201D"
-  IndicatorType: 1
+  PromptHeader: "I\u2019m going on a vacay #insta #vacation"
+  IndicatorType: 0
   NotPublicInfo: 0
-  CopyrightedData: 1
+  CopyrightedData: 0
   SubjectNotInformed: 0
   Checks: []
+  <PromptPools>k__BackingField: 33

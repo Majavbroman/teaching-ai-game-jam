@@ -10,17 +10,18 @@ MonoBehaviour:
   m_Enabled: 1
   m_EditorHideFlags: 0
   m_Script: {fileID: 11500000, guid: e5b70e696608a714e8ac1c54bfce583c, type: 3}
-  m_Name: TestPrompt 16
+  m_Name: Medical Info
   m_EditorClassIdentifier: Assembly-CSharp::PromptData
-  PromptHeader: My colleague got divorced 2 days ago.
+  PromptHeader: My mother called and was given my medical history by the doctor.
   IndicatorType: 2
   NotPublicInfo: 0
   CopyrightedData: 0
   SubjectNotInformed: 0
   Checks:
-  - CheckText: "My colleague got divorced 2 days ago, but it\u2019s posted on her
-      public Facebook."
-    Disapproved: 0
-    NotPublicInfo: 0
+  - CheckText: I am an adult and did not consent to my mother receiving my medical
+      information.
+    Disapproved: 1
+    NotPublicInfo: 1
     CopyrightedData: 0
-    SubjectNotInformed: 0
+    SubjectNotInformed: 1
+  <PromptPools>k__BackingField: 2

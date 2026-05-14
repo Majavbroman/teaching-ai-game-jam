@@ -1,0 +1,28 @@
+%YAML 1.1
+%TAG !u! tag:unity3d.com,2011:
+--- !u!114 &11400000
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 0}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: e5b70e696608a714e8ac1c54bfce583c, type: 3}
+  m_Name: Spongebob Tattoo
+  m_EditorClassIdentifier: Assembly-CSharp::PromptData
+  PromptHeader: Jens has a spongebob tattoo on my buttcheek
+  IndicatorType: 2
+  NotPublicInfo: 0
+  CopyrightedData: 0
+  SubjectNotInformed: 0
+  Checks:
+  - CheckText: Jens told his friend in confidence that he has a SpongeBob tattoo
+      on his butt cheek, and he did not give permission for his friend to share that
+      information with others.
+    Disapproved: 1
+    NotPublicInfo: 1
+    CopyrightedData: 0
+    SubjectNotInformed: 1
+  <PromptPools>k__BackingField: 74

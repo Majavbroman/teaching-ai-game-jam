@@ -10,17 +10,12 @@ MonoBehaviour:
   m_Enabled: 1
   m_EditorHideFlags: 0
   m_Script: {fileID: 11500000, guid: e5b70e696608a714e8ac1c54bfce583c, type: 3}
-  m_Name: TestPrompt 12
+  m_Name: I work as
   m_EditorClassIdentifier: Assembly-CSharp::PromptData
-  PromptHeader: My parents supports MAGA
-  IndicatorType: 2
+  PromptHeader: I work as a taxi driver
+  IndicatorType: 0
   NotPublicInfo: 0
   CopyrightedData: 0
   SubjectNotInformed: 0
-  Checks:
-  - CheckText: My parents supports MAGA because they believe that Trump is a good
-      president who is doing a great job.
-    Disapproved: 1
-    NotPublicInfo: 1
-    CopyrightedData: 0
-    SubjectNotInformed: 1
+  Checks: []
+  <PromptPools>k__BackingField: 33
