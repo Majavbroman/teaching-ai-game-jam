@@ -10,18 +10,12 @@ MonoBehaviour:
   m_Enabled: 1
   m_EditorHideFlags: 0
   m_Script: {fileID: 11500000, guid: e5b70e696608a714e8ac1c54bfce583c, type: 3}
-  m_Name: TestPrompt 5
+  m_Name: Diagnosed with Anxiety
   m_EditorClassIdentifier: Assembly-CSharp::PromptData
-  PromptHeader: Jens has a spongebob tattoo on my buttcheek
-  IndicatorType: 2
-  NotPublicInfo: 0
+  PromptHeader: I am diagnosed with anxiety
+  IndicatorType: 1
+  NotPublicInfo: 1
   CopyrightedData: 0
   SubjectNotInformed: 0
-  Checks:
-  - CheckText: Jens told his friend in confidence that he has a SpongeBob tattoo
-      on his butt cheek, and he did not give permission for his friend to share that
-      information with others.
-    Disapproved: 1
-    NotPublicInfo: 1
-    CopyrightedData: 0
-    SubjectNotInformed: 1
+  Checks: []
+  <PromptPools>k__BackingField: 1

@@ -2,6 +2,19 @@ using System;
 using Unity.VisualScripting;
 using UnityEngine;
 
+//ADDED PROMPT POOL ENUM TO EASILY ORGANIZE PROMPTS INTO DIFFERENT CATEGORIES
+[Flags]
+public enum PromptPool
+{
+    Level1 = 1 << 0,
+    Level2 = 1 << 1,
+    Level3 = 1 << 2,
+    Absurd = 1 << 3,
+    Copyright = 1 << 4,
+    GoodBoy = 1 << 5,
+    Dumb = 1 << 6
+}
+
 [CreateAssetMenu(fileName = "PromptData", menuName = "Prompt")]
 public class PromptData : ScriptableObject
 {
@@ -18,6 +31,10 @@ public class PromptData : ScriptableObject
     [Space(15)]
     [SerializeField] private PromptCheck[] Checks;
     private PromptCheck _currentCheck;
+
+    [field: Space(15)]
+    [field: Header("Prompt Pool")]
+    [field: SerializeField] public PromptPool PromptPools { get; private set; }
 
     public void SetRandomCheck()
     {
@@ -91,3 +108,4 @@ public class PromptData : ScriptableObject
         return 0;
     }
 }
+

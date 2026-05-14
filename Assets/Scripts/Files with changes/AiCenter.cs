@@ -11,6 +11,9 @@ public class AiCenter : MonoBehaviour
 
     private AiCenterData aiCenterData;
 
+    //ADDED EVENT FOR WHEN THE AI CENTER IS COMPLETED (SIZE REACHED). THIS EVENT HELPS WITH UPPING THE GAMES DIFFICULTY OVER TIME
+    public static event Action OnAICenterCompleted;
+
     [SerializeField] private GDPRUI _gdprUI;
     public bool GDPR { get
         {
@@ -37,29 +40,19 @@ public class AiCenter : MonoBehaviour
         SetData(CreateData());
     }
 
+    //CLEANED UP A BIT IN THE TRIGGER ENTER METHOD TO LESSEN THE AMOUNT OF LOOKING IN CHILDREN FOR COMPONENTS.
     private void OnTriggerEnter2D(Collider2D other)
     {
-        if (!other.CompareTag("Enemy")) return;
+        if (!other.TryGetComponent(out Enemy enemy)) return;
 
-        int childCount = other.transform.childCount;
+        int severity = enemy.Prompt.GetSeverity();
+        severity += GDPR ? 1 : 0;
 
-        for (int i = 0; i < childCount; i++)
-        {
-            Transform child = other.transform.GetChild(i);
+        float severityScore = CalculateSeverityScore(severity);
+        Debug.Log("Severity: " + severity + ", Score: " + severityScore.ToString("F2"));
 
-            if (child.TryGetComponent(out Prompt prompt))
-            {
-                int severity = prompt.GetSeverity();
-                severity += aiCenterData.GDPR ? 1 : 0;
-
-                float severityScore = CalculateSeverityScore(severity);
-
-                Debug.Log("Severity: " + severity + ", Score: " + severityScore.ToString("F2"));
-
-                ScoreUI.Instance.UpdateScore(severityScore);
-                UpdateSize(GetSizeChange(severity));
-            }
-        }
+        ScoreUI.Instance.UpdateScore(severityScore);
+        UpdateSize(GetSizeChange(severity));
 
         Destroy(other.gameObject);
     }
@@ -75,6 +68,7 @@ public class AiCenter : MonoBehaviour
         if (difference > 0)
         {
             SetData(CreateData());
+            OnAICenterCompleted?.Invoke();
         }
     }
 
